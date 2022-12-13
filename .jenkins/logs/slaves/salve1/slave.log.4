@@ -1,0 +1,73 @@
+SSHLauncher{host='172.31.23.23', port=22, credentialsId='ec2-user', jvmOptions='', javaPath='', prefixStartSlaveCmd='', suffixStartSlaveCmd='', launchTimeoutSeconds=60, maxNumRetries=10, retryWaitTime=15, sshHostKeyVerificationStrategy=hudson.plugins.sshslaves.verifiers.ManuallyTrustedKeyVerificationStrategy, tcpNoDelay=true, trackCredentials=true}
+[12/13/22 17:38:44] [SSH] Opening SSH connection to 172.31.23.23:22.
+[12/13/22 17:38:44] [SSH] SSH host key matches key seen previously for this host. Connection will be allowed.
+[12/13/22 17:38:44] [SSH] Authentication successful.
+[12/13/22 17:38:44] [SSH] The remote user's environment is:
+BASH=/usr/bin/bash
+BASHOPTS=cmdhist:extquote:force_fignore:hostcomplete:interactive_comments:progcomp:promptvars:sourcepath
+BASH_ALIASES=()
+BASH_ARGC=()
+BASH_ARGV=()
+BASH_CMDS=()
+BASH_EXECUTION_STRING=set
+BASH_LINENO=()
+BASH_SOURCE=()
+BASH_VERSINFO=([0]="4" [1]="2" [2]="46" [3]="2" [4]="release" [5]="x86_64-koji-linux-gnu")
+BASH_VERSION='4.2.46(2)-release'
+DIRSTACK=()
+EUID=1000
+GROUPS=()
+HOME=/home/ec2-user
+HOSTNAME=ip-172-31-23-23.us-east-2.compute.internal
+HOSTTYPE=x86_64
+IFS=$' \t\n'
+LANG=en_US.UTF-8
+LESSOPEN='||/usr/bin/lesspipe.sh %s'
+LOGNAME=ec2-user
+MACHTYPE=x86_64-koji-linux-gnu
+MAIL=/var/mail/ec2-user
+OPTERR=1
+OPTIND=1
+OSTYPE=linux-gnu
+PATH=/usr/local/bin:/usr/bin
+PIPESTATUS=([0]="0")
+PPID=3466
+PS4='+ '
+PWD=/home/ec2-user
+SHELL=/bin/bash
+SHELLOPTS=braceexpand:hashall:interactive-comments
+SHLVL=1
+SSH_CLIENT='172.31.28.140 60302 22'
+SSH_CONNECTION='172.31.28.140 60302 172.31.23.23 22'
+TERM=dumb
+UID=1000
+USER=ec2-user
+XDG_RUNTIME_DIR=/run/user/1000
+XDG_SESSION_ID=11
+_=/etc/bashrc
+Checking Java version in the PATH
+openjdk version "1.8.0_342"
+OpenJDK Runtime Environment (build 1.8.0_342-b07)
+OpenJDK 64-Bit Server VM (build 25.342-b07, mixed mode)
+[12/13/22 17:38:44] [SSH] Checking java version of /root/jenkins/jdk/bin/java
+Couldn't figure out the Java version of /root/jenkins/jdk/bin/java
+bash: /root/jenkins/jdk/bin/java: Permission denied
+
+[12/13/22 17:38:44] [SSH] Checking java version of java
+[12/13/22 17:38:44] [SSH] java -version returned 1.8.0_342.
+[12/13/22 17:38:44] [SSH] Starting sftp client.
+java.io.IOException: Could not copy remoting.jar into '/root/jenkins' on agent
+	at hudson.plugins.sshslaves.SSHLauncher.copyAgentJar(SSHLauncher.java:733)
+	at hudson.plugins.sshslaves.SSHLauncher.lambda$launch$0(SSHLauncher.java:456)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: com.trilead.ssh2.SFTPException: Permission denied (SSH_FX_PERMISSION_DENIED: The user does not have sufficient permissions to perform the operation.)
+	at com.trilead.ssh2.SFTPv3Client.statBoth(SFTPv3Client.java:440)
+	at com.trilead.ssh2.SFTPv3Client.stat(SFTPv3Client.java:455)
+	at com.trilead.ssh2.jenkins.SFTPClient._stat(SFTPClient.java:63)
+	at hudson.plugins.sshslaves.SSHLauncher.copyAgentJar(SSHLauncher.java:686)
+	... 5 more
+[12/13/22 17:38:44] Launch failed - cleaning up connection
+[12/13/22 17:38:44] [SSH] Connection closed.
